@@ -1,6 +1,6 @@
 import express from 'express'
 import cors from 'cors'
-// import messagesRoute from './routes/messages.js'
+import messagesRoute from './routes/messages.js'
 // import usersRoute from './routes/users.js'
 
 const app = express()
@@ -14,10 +14,10 @@ app.use(
   }),
 )
 
-// const routes = [...messagesRoute, ...usersRoute]
-// routes.forEach(({ method, route, handler }) => {
-//   app[method](route, handler)
-// })
+const routes = [...messagesRoute]
+routes.forEach(({ method, route, handler }) => {
+  app[method](route, handler)
+})
 
 app.listen(8000, () => {
   console.log('server listening on 8000...')
